@@ -11,6 +11,9 @@ import { DetailsPage } from './../pages/details/details';
 import { MobxAngularModule } from 'mobx-angular';
 import { BirthdayStore } from '../stores/birthday.store';
 
+import { BirthdayService } from './../services/birthday.service';
+import { IonicStorageModule } from "@ionic/storage";
+
 @NgModule({
   declarations: [
     MyApp,
@@ -20,7 +23,8 @@ import { BirthdayStore } from '../stores/birthday.store';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    MobxAngularModule
+    IonicStorageModule.forRoot(),
+    MobxAngularModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -32,7 +36,8 @@ import { BirthdayStore } from '../stores/birthday.store';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    BirthdayStore
+    BirthdayStore,
+    BirthdayService
   ]
 })
 export class AppModule {}
